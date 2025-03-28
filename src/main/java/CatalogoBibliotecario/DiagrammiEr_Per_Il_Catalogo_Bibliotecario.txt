@@ -1,0 +1,4 @@
+package CatalogoBibliotecario;
+
+public class DiagrammiEr_Per_Il_Catalogo_Bibliotecario {
+}
