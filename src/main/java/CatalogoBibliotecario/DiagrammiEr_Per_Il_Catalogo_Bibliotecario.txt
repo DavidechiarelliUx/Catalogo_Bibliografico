@@ -1,4 +1,39 @@
-package CatalogoBibliotecario;
+Albero delle Entità :
 
-public class DiagrammiEr_Per_Il_Catalogo_Bibliotecario {
-}
+Catalogo-------> Libro
+          |
+          -----> Rivista
+
+Utente
+Prestito
+
+________________________
+
+Attributi :
+
+Catalogo :
+Codice ID - Titolo - Anno Publicazione - Numero Pagine ;
+
+Libro :
+Codice ID - Autore - Genere
+
+Rivista :
+Codice ID - Periodicita(enums) [SETTIMANALE , MENSILE , SEMESTRALE ] - Numero Pagina
+
+Utente :
+Numero Tessera ( univoco ) , Nome , Cognome , Data di Nascita,
+
+Prestito :
+Codice ID - Utente - Elemento Prestato - Data inizio Prestito - Data Restituzione Prevista - Data Restituzione Effettiva
+
+_____________________
+
+RELAZIONE :
+
+Utente 1 --------------------- M prestito  ( un utente può avere molti prestiti )
+Catalogo ( che può essere libro o rivista ) 1 --------------------- M prestito ( un catalogo puo avere molti prestiti )
+
+Libro è un tipo di elemento
+
+Rivista è un tipo di elemento
+
