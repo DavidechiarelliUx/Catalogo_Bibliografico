@@ -1,5 +1,6 @@
 package CatalogoBibliotecario.Prestito;
 
+import CatalogoBibliotecario.Catalogo.Catalogo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -26,17 +27,21 @@ public class PrestitoDAO {
     public void delete(Prestito prestito) {
         em.remove(prestito);
     }
-    // Ricerca degli elementi attualmente in prestito dato un numero di tessera utente
-    public List<Prestito> findByNumeroTessera(int numeroTessera) {
-        TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findByNumeroTessera", Prestito.class);
-        query.setParameter("numeroTessera", numeroTessera);
-        return query.getResultList();
-    }
-
-    // Ricerca di tutti i prestiti scaduti e non ancora restituiti
-    public List<Prestito> findPrestitiScadutiNonRestituiti(LocalDate dataCorrente) {
-        TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findPrestitiScadutiNonRestituiti", Prestito.class);
-        query.setParameter("dataCorrente", dataCorrente);
-        return query.getResultList();
-    }
+   // public List<Catalogo> findElementiInPrestitoPerUtente(int numeroTesseraUtente) {
+    //        TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findPrestitiPerUtente", Prestito.class);
+    //        query.setParameter("numeroTesseraUtente", numeroTesseraUtente);
+    //        List<Prestito> prestiti = query.getResultList();
+    //
+    //        List<Catalogo> elementiPrestati = prestiti.stream()
+    //                .map(Prestito::getElementoPrestato)
+    //                .toList();
+    //
+    //        return elementiPrestati;
+    //    }
+    //    public List<Prestito> findPrestitiScadutiNonRestituiti() {
+    //        LocalDate oggi = LocalDate.now();
+    //        TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findPrestitiScadutiNonRestituiti", Prestito.class);
+    //        query.setParameter("oggi", oggi);
+    //        return query.getResultList();
+    //    }
 }

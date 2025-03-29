@@ -5,11 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "riviste")
-@NamedQueries({
-        @NamedQuery(name = "Rivista.findByIsbn", query = "SELECT r FROM Rivista r WHERE r.codiceID = :isbn"),
-        @NamedQuery(name = "Rivista.findByAnnoPubblicazione", query = "SELECT r FROM Rivista r WHERE r.annoPubblicazione = :anno"),
-        @NamedQuery(name = "Rivista.findByTitolo", query = "SELECT r FROM Rivista r WHERE r.titolo LIKE :titolo")
-})
+
 public class Rivista extends Catalogo {
 
     @Enumerated(EnumType.STRING)
@@ -26,7 +22,7 @@ public class Rivista extends Catalogo {
     public Rivista() {
     }
 
-    public Rivista(Long id,String titolo, String annoPubblicazione, int numeroPagine, Periodicita periodicita) {
+    public Rivista(Long id,String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita) {
         super(id, titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
     }

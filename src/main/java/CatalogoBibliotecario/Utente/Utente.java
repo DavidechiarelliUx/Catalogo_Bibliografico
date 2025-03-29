@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "utenti")
-@NamedQuery(name = "Utente.findByNumeroTessera", query = "SELECT u FROM Utente u WHERE u.numeroTessera = :numeroTessera")
 public class Utente {
     @Column(nullable = false, length = 50)
     private String nome;

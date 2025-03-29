@@ -30,29 +30,24 @@ public class LibroDAO {
         em.remove(libro);
     }
 
-    //ricerca per isbn
-    public Libro findByIsbn(String isbn) {
-        TypedQuery<Libro> query = em.createNamedQuery("Libro.findByIsbn", Libro.class);
-        query.setParameter("isbn", isbn);
+    public Libro findByIdNamedQuery(Long id) {
+        TypedQuery<Libro> query = em.createNamedQuery("Libro.findById", Libro.class);
+        query.setParameter("id", id);
         return query.getSingleResult();
     }
-
-    // Ricerca per anno pubblicazione
     public List<Libro> findByAnnoPubblicazione(int annoPubblicazione) {
         TypedQuery<Libro> query = em.createNamedQuery("Libro.findByAnnoPubblicazione", Libro.class);
-        query.setParameter("anno", annoPubblicazione);
+        query.setParameter("annoPubblicazione", annoPubblicazione);
         return query.getResultList();
     }
 
-    // Ricerca per autore
     public List<Libro> findByAutore(String autore) {
         TypedQuery<Libro> query = em.createNamedQuery("Libro.findByAutore", Libro.class);
         query.setParameter("autore", autore);
         return query.getResultList();
     }
 
-    // Ricerca per titolo o parte di esso
-    public List<Libro> findByTitolo(String titolo) {
+    public List<Libro> findByTitoloParziale(String titolo) {
         TypedQuery<Libro> query = em.createNamedQuery("Libro.findByTitolo", Libro.class);
         query.setParameter("titolo", "%" + titolo + "%");
         return query.getResultList();

@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 @Entity
 @Table(name = "cataloghi")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Catalogo {
+public abstract class Catalogo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -55,10 +55,10 @@ public class Catalogo {
 
     public Catalogo() {
     }
-    public Catalogo(Long id, String titolo, String annoPubblicazione, int numeroPagine) {
+    public Catalogo(Long id, String titolo, int annoPubblicazione, int numeroPagine) {
         this.id = id;
         this.titolo = titolo;
-        this.annoPubblicazione = Integer.parseInt(annoPubblicazione);
+        this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
     }
 }

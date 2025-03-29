@@ -7,10 +7,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "prestiti")
-@NamedQueries({
-        @NamedQuery(name = "Prestito.findByNumeroTessera", query = "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera"),
-        @NamedQuery(name = "Prestito.findPrestitiScadutiNonRestituiti", query = "SELECT p FROM Prestito p WHERE p.dataInizioPrestito < :dataCorrente AND p.dataRestituzioneEffettiva IS NULL")
-})
+//@NamedQuery(name = "Prestito.findPrestitiPerUtente", query = "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTesseraUtente AND p.dataRestituzioneEffettiva IS NULL")
+//@NamedQuery(name = "Prestito.findPrestitiScadutiNonRestituiti", query = "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
 public class Prestito {
 
     @Id

@@ -29,9 +29,5 @@ public class UtenteDAO {
         em.remove(utente);
     }
     // Ricerca utente per numero di tessera
-    public Utente findByNumeroTessera(int numeroTessera) {
-        TypedQuery<Utente> query = em.createNamedQuery("Utente.findByNumeroTessera", Utente.class);
-        query.setParameter("numeroTessera", numeroTessera);
-        return query.getSingleResult();
-    }
+
 }

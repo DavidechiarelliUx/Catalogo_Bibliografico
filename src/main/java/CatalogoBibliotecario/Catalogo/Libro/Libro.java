@@ -5,12 +5,10 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "libri")
-@NamedQueries({
-        @NamedQuery(name = "Libro.findByIsbn", query = "SELECT l FROM Libro l WHERE l.codiceID = :isbn"),
-        @NamedQuery(name = "Libro.findByAnnoPubblicazione", query = "SELECT l FROM Libro l WHERE l.annoPubblicazione = :anno"),
-        @NamedQuery(name = "Libro.findByAutore", query = "SELECT l FROM Libro l WHERE l.autore = :autore"),
-        @NamedQuery(name = "Libro.findByTitolo", query = "SELECT l FROM Libro l WHERE l.titolo LIKE :titolo")
-})
+@NamedQuery(name = "Libro.findById", query = "SELECT l FROM Libro l WHERE l.id = :id")
+@NamedQuery(name = "Libro.findByAnnoPubblicazione", query = "SELECT l FROM Libro l WHERE l.annoPubblicazione = :annoPubblicazione")
+@NamedQuery(name = "Libro.findByAutore", query = "SELECT l FROM Libro l WHERE l.autore = :autore")
+@NamedQuery(name = "Libro.findByTitolo", query = "SELECT l FROM Libro l WHERE l.titolo LIKE :titolo")
 public class Libro extends Catalogo {
 
     @Column(nullable = false, length = 50)
@@ -38,7 +36,7 @@ public class Libro extends Catalogo {
     public Libro() {
     }
 
-    public Libro(Long id,String titolo, String annoPubblicazione, int numeroPagine, String autore, String genere) {
+    public Libro(Long id,String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
         super(id, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;

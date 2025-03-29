@@ -15,10 +15,10 @@ public class Main {
 
         em.getTransaction().begin();
 
-        Libro libro = new Libro(1L,"Harry Potter", "1997", 300, "J.K. Rowling", "Fantasy");
+        Libro libro = new Libro(1L,"Harry Potter", 1998, 300, "J.K. Rowling", "Fantasy");
         em.persist(libro);
 
-        Rivista rivista = new Rivista(2L, "National Geographic", "2021", 100, Periodicita.MENSILE);
+        Rivista rivista = new Rivista(2L, "National Geographic", 2022, 100, Periodicita.MENSILE);
         em.persist(rivista);
 
         em.getTransaction().commit();
